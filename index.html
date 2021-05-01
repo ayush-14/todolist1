@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDO List</title>
+    <script src="angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="addToDO.js"></script>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <div ng-controller="todoList">
+        <span>Items: {{todos.length}} </span>
+        <ul>
+            <li ng-repeat="todo in todos">
+                <label class="checkbox">
+                    <input type="checkbox" ng-model="todo.done">
+                    <span class="done-{{todo.done}}">{{todo.text}}</span>
+                </label>
+            </li>
+        </ul>
+        <form ng-submit="addTodo()">
+            <input type="text" ng-model="todoText" size="30" placeholder="add new ToDo here">
+            <input type="submit" value="Add">
+        </form>
+    </div>
+</body>
+</html>
